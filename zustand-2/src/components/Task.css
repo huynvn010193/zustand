@@ -8,3 +8,22 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.bottomWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.status {
+  font-size: small;
+  background-color: var(--COLOR-GRAY-LIGHT);
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+.PLANNED {
+  background-color: var(--COLOR-GRAY-LIGHT);
+}
+.ONGOING {
+  background-color: var(--COLOR-ONGOING);
+}
+.DONE {
+  background-color: var(--COLOR-DONE);
+}
