@@ -1,16 +1,24 @@
 import classNames from "classnames";
 import "./Task.css";
-
-const STATUS = "PLANNED";
+import { useStore } from "../store";
+import trash from "../assets/trash-2.svg";
 
 // eslint-disable-next-line react/prop-types
 export default function Task({ title }) {
+  const task = useStore((store) =>
+    store.tasks.find((task) => task.title === title)
+  );
+
+  const deleteTask = useStore((store) => store.deleteTask);
+
   return (
-    <div className="task">
-      <div>{title}</div>
-      <div className="bottomWrapper">
-        <div></div>
-        <div className={classNames("status", STATUS)}>{STATUS}</div>
+    <div className='task' draggable>
+      <div>{task.title}</div>
+      <div className='bottomWrapper'>
+        <div>
+          <img src={trash} onClick={() => deleteTask(task.title)} />
+        </div>
+        <div className={classNames("status", task.state)}>{task.state}</div>
       </div>
     </div>
   );
